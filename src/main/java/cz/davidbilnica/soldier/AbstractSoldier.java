@@ -1,12 +1,12 @@
 package cz.davidbilnica.soldier;
 
 public abstract class AbstractSoldier {
-    private final String type;
+    private String type;
     private final String name;
     private int damage;
 
-    public AbstractSoldier(String name, int damage) {
-        this.type = "Abstract Soldier";
+    public AbstractSoldier(String type, String name, int damage) {
+        this.type = type;
         this.name = name;
         this.damage = damage;
     }
