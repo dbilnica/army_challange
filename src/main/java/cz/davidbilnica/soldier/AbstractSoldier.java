@@ -1,9 +1,12 @@
 package cz.davidbilnica.soldier;
 
-public abstract class AbstractSoldier {
+import commands.Commands;
+
+public abstract class AbstractSoldier{
     private String type;
     private final String name;
-    private int damage;
+    private final int damage;
+    private Commands command;
 
     public AbstractSoldier(String type, String name, int damage) {
         this.type = type;
@@ -11,7 +14,19 @@ public abstract class AbstractSoldier {
         this.damage = damage;
     }
 
-    public void printReport() {
-        System.out.println(this.type + " - " + this.name);
+    public String getReport() {
+        return this.type + " - " + this.name + " with " + this.damage + " damage";
+    }
+
+    public void setCommands(Commands command) {
+        this.command = command;
+    }
+
+    public void executeCommand() {
+        if(command != null) {
+            System.out.println(getReport() + " " + command.makeCommand());
+        } else{
+            System.out.println(getReport() + " has no special commands setted!");
+        }
     }
 }

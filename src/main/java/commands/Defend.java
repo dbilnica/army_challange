@@ -1,9 +1,8 @@
 package commands;
 
-public class Fight implements Commands{
-
+public class Defend implements Commands{
     @Override
     public String makeCommand() {
-        return "is fighting!";
+        return "is defending!";
     }
 }

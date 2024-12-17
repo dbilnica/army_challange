@@ -1,11 +1,12 @@
 package cz.davidbilnica;
 
+import commands.Defend;
+import commands.Fight;
+import commands.Surrender;
 import cz.davidbilnica.soldier.AbstractSoldier;
 import cz.davidbilnica.soldier.AdaptableSoldier;
 import cz.davidbilnica.soldier.DefensiveSoldier;
 import cz.davidbilnica.soldier.OffensiveSoldier;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -20,8 +21,29 @@ public class Main {
                 new OffensiveSoldier("Pepík", 85),
                 new OffensiveSoldier("Kvido", 96),
                 new OffensiveSoldier("Robert", 93));
+
+        System.out.println("-----REPORT-----");
         for(AbstractSoldier soldier: listOfSoldiers) {
-            soldier.printReport();
+            System.out.println(soldier.getReport());
         }
+
+        System.out.println("-----FIGHTING-----");
+        for(AbstractSoldier soldier: listOfSoldiers) {
+            soldier.setCommands(new Fight());
+            soldier.executeCommand();
+        }
+
+        System.out.println("-----SURRENDING-----");
+        for(AbstractSoldier soldier : listOfSoldiers) {
+            soldier.setCommands(new Surrender());
+            soldier.executeCommand();
+        }
+
+        System.out.println("-----DEFENDING-----");
+        for(AbstractSoldier soldier: listOfSoldiers) {
+            soldier.setCommands(new Defend());
+            soldier.executeCommand();
+        }
+
     }
 }

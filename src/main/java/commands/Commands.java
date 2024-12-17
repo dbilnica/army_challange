@@ -1,5 +1,5 @@
 package commands;
 
 public interface Commands {
-    void makeCommand();
+    String makeCommand();
 }
