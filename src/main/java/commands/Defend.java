@@ -1,8 +1,5 @@
 package commands;
 
-public class Defend implements Commands{
-    @Override
-    public String makeCommand() {
-        return "is defending!";
-    }
+public interface Defend {
+    void defend();
 }

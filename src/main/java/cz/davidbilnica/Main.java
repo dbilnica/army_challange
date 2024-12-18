@@ -29,20 +29,23 @@ public class Main {
 
         System.out.println("-----FIGHTING-----");
         for(AbstractSoldier soldier: listOfSoldiers) {
-            soldier.setCommands(new Fight());
-            soldier.executeCommand();
+            if(soldier instanceof Fight) {
+                ((Fight) soldier).fight();
+            }
         }
 
         System.out.println("-----SURRENDING-----");
-        for(AbstractSoldier soldier : listOfSoldiers) {
-            soldier.setCommands(new Surrender());
-            soldier.executeCommand();
+        for (AbstractSoldier soldier: listOfSoldiers) {
+            if(soldier instanceof Surrender) {
+                ((Surrender) soldier).surrender();
+            }
         }
 
         System.out.println("-----DEFENDING-----");
         for(AbstractSoldier soldier: listOfSoldiers) {
-            soldier.setCommands(new Defend());
-            soldier.executeCommand();
+            if(soldier instanceof Defend) {
+                ((Defend) soldier).defend();
+            }
         }
 
     }
